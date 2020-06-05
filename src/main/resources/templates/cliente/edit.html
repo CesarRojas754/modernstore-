@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+	<main role="main">
+		<section class="container">
+			<div class="card text-center">
+				<div class="card-header">Editar Clientes</div>
+				<div class="card-body text-left">
+
+					<form th:action="@{/inicio/clientes/save}" th:object="${cliente}"
+						method="post">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="nombres">Nombres</label> <input type="text"
+									class="form-control" th:field="*{nombres}"
+									placeholder="ingrese sus nombres">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="apellidos">Apellidos</label> <input type="text"
+									class="form-control" th:field="*{apellidos}"
+									placeholder="ingrese sus apellidos">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="direccion">Direccion</label> <input type="text"
+									class="form-control" th:field="*{direccion}"
+									placeholder="ingrese su direccion">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="fechaNacimiento">Fecha de nacimiento</label> <input type="date"
+									class="form-control" th:field="*{fechaNacimiento}"
+									placeholder="ingrese su fecha de nacimiento">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="correo">Correo</label> <input type="text"
+									class="form-control" th:field="*{correo}"
+									placeholder="example@email.com">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="usuario">Usuario</label> <input type="text"
+									class="form-control" th:field="*{usuario}"
+									placeholder="ingrese su usuario">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="password">Password</label> <input type="text"
+									class="form-control" th:field="*{password}"
+									placeholder="ingrese su password">
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-success">
+							<i class="fas fa-save"></i> Grabar
+						</button>
+						<a th:href="@{/inicio/clientes}" class="btn btn-danger"><i
+							class="fas fa-ban"></i> Cancelar </a>
+					</form>
+
+
+				</div>
+				<div class="card-footer text-center"></div>
+			</div>
+
+
+
+
+
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

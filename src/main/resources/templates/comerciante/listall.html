@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<main role="main">
+	<section class="container">
+
+		<div class="card text-center">
+			<div class="card-header">Comerciantes</div>
+			<div class="card-body">
+
+				<table class="table table-dark">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Suscripcion</th>
+							<th scope="col">Nombres</th>
+							<th scope="col">Apellidos</th>
+							<th scope="col">DNI</th>
+							<th scope="col">Celular</th>
+							<th scope="col">Correo</th>
+							<th scope="col">Usuario</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="comerciante: ${comerciantes}">
+							<th scope="row" th:text="${comerciante.id}">1</th>
+							<td th:text="${comerciante.suscripcion.nombre + ': ' + comerciante.suscripcion.monto}">.</td>
+							<td th:text="${comerciante.nombres}">.</td>
+							<td th:text="${comerciante.apellidos}">.</td>
+							<td th:text="${comerciante.dni}">.</td>
+							<td th:text="${comerciante.celular}">.</td>
+							<td th:text="${comerciante.correo}">.</td>
+							<td th:text="${comerciante.usuario}">.</td>
+							
+							
+							
+							<td>
+						
+								<a th:href="@{'/inicio/comerciantes/edit/' + ${comerciante.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+								<a th:href="@{'/inicio/comerciantes/del/' + ${comerciante.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="card-footer text-center">
+				<a th:href="@{/inicio/comerciantes/new}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
+			</div>
+		</div>
+
+	</section>
+</main>
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
